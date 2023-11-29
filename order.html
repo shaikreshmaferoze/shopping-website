@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<body>
+<form id="form1" >
+<table border='2' Colspan='2' align='center' height=300 width=300>
+<h1 align='center'> Order Form </h1>
+<tr>
+<td style='background-color:light green'>
+Customer Name
+</td>
+<td>
+<input type='text' id='cusname' name='cusname'/>
+</td>
+</tr>
+
+
+<tr>
+<td >
+Quantity Of The Product
+</td>
+<td>
+<select id='quantity' name='quantity'>
+<option>select</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+</select>
+</td>
+</tr>
+
+
+
+<td>
+
+    <input type="button" value="CLEAR" onclick="newFunction()"/>
+</td>
+<td> 
+    <input type="submit" value="OK" onclick="return validate()"/>
+</td>
+
+
+<tr>
+    <td colspan="2">
+    <p id='p1'></p>
+    </td>
+    </tr>
+    <tr></tr>
+
+
+<tr>
+    <td colspan="2">
+        <a style='color:blue' href='list.html' target='iframe1'><h4 align="center">GO BACK</h4></a>
+        </td>
+</tr>
+</table>
+
+
+</form>
+<script type='text/javascript'>
+    function validate(){
+            
+            var customername=document.getElementById("cusname").value;
+            
+            
+            var quantity=document.getElementById("quantity").value;
+            
+            if(customername==""){
+                document.getElementById("p1").innerHTML="<h4 style='color:purple'>please enter your name</h4>";
+                return false;
+            }
+            
+            
+            if(quantity=="select"){
+                document.getElementById("p1").innerHTML="<h4 style='color:purple'>please select quantity of products</h4>";
+                return false;
+            }
+            if(customername!="" && quantity!="select"){
+                document.getElementById("p1").innerHTML="<h4 style='color:purple'>Successfully order placed</h4>";
+                return false;
+            }
+            
+            return true;
+    }
+    
+    </script>
+    <script>
+        function newFunction() {
+           document.getElementById("form1").reset();
+        }
+     </script>
+
+</body>
+</html>
